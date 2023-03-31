@@ -8,12 +8,12 @@ exports.handler = async function (event, context) {
   const message = `
     Name: ${body.name}rn
     Email: ${body.email}rn
-    Message: ${body.message}
+    Message: ${body.message}rn
   `;
 
   await mail.send({
-    to: process.env.MAIL_TO,
-    from: process.env.MAIL_FROM,
+    to: 'nmyat@cpp.edu',
+    from: 'nmyat@cpp.edu',
     subject: `New Message from ${body.name}!`,
     text: message,
     html: message.replace(/rn/g, '<br>'),
