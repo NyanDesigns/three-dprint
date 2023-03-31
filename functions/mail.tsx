@@ -3,12 +3,19 @@ const mail = require('@sendgrid/mail');
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.handler = async function (event, context) {
+  if (!event.body) {
+    console.log('Request body is empty');
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Request body is empty' }),
+    };
+  }
   const body = JSON.parse(event.body);
 
   const message = `
     Name: ${body.name}rn
     Email: ${body.email}rn
-    Message: ${body.message}rn
+    Message: ${body.message}
   `;
 
   await mail.send({
