@@ -1,0 +1,21 @@
+import styles from './form-row.module.scss';
+import classNames from 'classnames';
+import { Input } from '../input/input';
+import { Label } from '../label/label';
+
+export interface FormRowProps {
+    className?: string;
+}
+
+/**
+ * This component was created using Codux's Default new component template.
+ * To create custom component templates, see https://help.codux.com/kb/en/article/configuration-for-form-rows-and-templates
+ */
+export const FormRow = ({ className }: FormRowProps) => {
+    return (
+        <div className={classNames(styles.root, className)}>
+            <Label>NAME</Label>
+            <Input />
+        </div>
+    );
+};

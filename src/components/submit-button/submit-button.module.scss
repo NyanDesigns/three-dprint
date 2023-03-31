@@ -1,2 +1,21 @@
 .root {
 }
+.button {
+  margin: 0px;
+  padding: 8px 10px;
+  font-weight: 600;
+  border-radius: 7px;
+  border: 0.25px solid #5e6b82;
+  background-color: #b7caf2;
+  color: #000000;
+  width: 220px;
+  &:hover {
+    background-color: #b7bdf2;
+    box-shadow: 0 0 5px #6863c6;
+  }
+  &:active {
+    background-color: #4d5882;
+    color: #ffffff;
+  }
+  box-shadow: 0 0 5px rgba(140, 211, 221, 0);
+}

@@ -1,2 +1,15 @@
 .root {
 }
+.input {
+  padding: 7px 10px;
+  border: 1px solid #b5b5c4;
+  border-radius: 5px;
+  &:focus {
+    border: 1px solid #7e93cc;
+    outline: unset;
+    box-shadow: 0 0 6px #4c7ab1;
+    width: 200px;
+    border-radius: 7px;
+  }
+  width: 200px;
+}

@@ -1,4 +1,5 @@
 import styles from './input.module.scss';
+import Classnames from 'classnames';
 
 export interface InputProps {
     className?: string;
@@ -7,7 +8,9 @@ export interface InputProps {
 }
 
 export const Input = ({ className, id, name }: InputProps) => {
-    return <div className={`${styles.root} ${className}`}>
-        <input id={id} name={name} className={styles.input} />
-    </div>;
+    return (
+        <div className={`${styles.root} ${className}`}>
+            <input id={id} name={name} className={Classnames(styles.input, styles.input)} />
+        </div>
+    );
 };
