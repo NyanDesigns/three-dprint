@@ -4,6 +4,29 @@ import { Input } from './components/input/input';
 import { Label } from './components/label/label';
 
 function App() {
+    function onFormSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        const formData: Record<string, string> = {};
+
+        function isInputNamedElement(e: Element): e is HTMLInputElement & { name: string } {
+            return 'value' in e && 'name' in e;
+        }
+
+        Array.from(e.currentTarget.elements).filter(isInputNamedElement).forEach((field) => {
+            if (!field.name) return;
+            formData[field.name] = field.value;
+        });
+
+        fetch('/.netlify/functions/mail', {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        }).then(response => {
+            // Do something here on success!
+        }).catch(error => {
+            // Do something here on error!
+        });
+    }
     return (
         <div className={styles.App}>
             <div className={styles['main-container']}>
@@ -17,7 +40,7 @@ function App() {
                         </div>
                     </div>
                 </div>
-                <form className={styles['form-container']}>
+                <form className={styles['form-container']} onSubmit={onFormSubmit}>
                     <div className={styles.InputRow}>
                         <Label>NAME</Label>
                         <Input />
