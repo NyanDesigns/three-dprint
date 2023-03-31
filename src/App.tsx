@@ -5,7 +5,7 @@ import { Label } from './components/label/label';
 
 function App() {
     return (
-        <div className={styles['main-bg']}>
+        <div className={styles.App}>
             <div className={styles['main-container']}>
                 <div className={styles['title-container']}>
                     <div className={styles.logo} />
